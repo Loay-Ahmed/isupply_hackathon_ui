@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:isupply_hackathon_ui/core/colors.dart';
 import '../widgets/credit_card_pageview.dart';
 import '../widgets/custom_appbar.dart';
-import '../widgets/custom_search_bar.dart'; // Updated import
 
 class MobileUI extends StatefulWidget {
   const MobileUI({super.key});

@@ -13,7 +13,6 @@ class CreditCardPageView extends StatefulWidget {
 
 class _CreditCardPageViewState extends State<CreditCardPageView> {
   final PageController _pageController = PageController();
-  int _currentPage = 0;
   int creditCardCount = 2;
 
   @override
@@ -24,9 +23,6 @@ class _CreditCardPageViewState extends State<CreditCardPageView> {
           height: 271,
           child: PageView.builder(
             controller: _pageController,
-            onPageChanged: (index) {
-              setState(() => _currentPage = index);
-            },
             itemCount: creditCardCount, // Number of items
             itemBuilder: (context, index) {
               return Padding(

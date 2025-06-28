@@ -19,8 +19,8 @@ class CreditCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final usedAmount = creditLimit - availableBalance;
-    final utilizationPercentage = (usedAmount / creditLimit) * 100;
+    final double usedAmount = creditLimit - availableBalance;
+    final double utilizationPercentage = usedAmount / creditLimit;
     final daysRemaining = statementEnd.difference(DateTime.now()).inDays;
 
     return Container(
@@ -34,7 +34,7 @@ class CreditCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.darkBlue.withOpacity(0.3),
+            color: AppColors.darkBlue.withAlpha(255 ~/ 3),
             blurRadius: 6,
             offset: const Offset(0, 3),
           ),
@@ -45,7 +45,6 @@ class CreditCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Compact Header Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -58,7 +57,7 @@ class CreditCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'VISA',
+                  'Credit Mode',
                   style: TextStyle(
                     color: AppColors.yellow,
                     fontSize: 14,
@@ -71,7 +70,6 @@ class CreditCard extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Compact Balance Display
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -88,7 +86,7 @@ class CreditCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      '\$${availableBalance.toStringAsFixed(2)}',
+                      availableBalance.toStringAsFixed(2),
                       style: const TextStyle(
                         color: AppColors.white,
                         fontSize: 20,
@@ -109,7 +107,7 @@ class CreditCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      '\$${creditLimit.toStringAsFixed(2)}',
+                      creditLimit.toStringAsFixed(2),
                       style: const TextStyle(
                         color: AppColors.white,
                         fontSize: 16,
@@ -123,13 +121,12 @@ class CreditCard extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            // Slim Progress Bar
             SizedBox(
               height: 6,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(3),
                 child: LinearProgressIndicator(
-                  value: utilizationPercentage / 100,
+                  value: utilizationPercentage,
                   backgroundColor: AppColors.white.withOpacity(0.15),
                   valueColor: AlwaysStoppedAnimation<Color>(
                     utilizationPercentage > 75
@@ -144,14 +141,14 @@ class CreditCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${utilizationPercentage.toStringAsFixed(0)}% used',
+                  '$usedAmount used',
                   style: TextStyle(
                     color: AppColors.white.withOpacity(0.8),
                     fontSize: 10,
                   ),
                 ),
                 Text(
-                  '${daysRemaining}d left',
+                  '${utilizationPercentage*100}%',
                   style: TextStyle(
                     color:
                         daysRemaining < 7
