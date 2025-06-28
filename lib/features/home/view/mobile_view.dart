@@ -4,32 +4,21 @@ import '../widgets/credit_card_pageview.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_search_bar.dart'; // Updated import
 
-class MobileUI extends StatelessWidget {
+class MobileUI extends StatefulWidget {
   const MobileUI({super.key});
 
+  @override
+  State<MobileUI> createState() => _MobileUIState();
+}
+
+class _MobileUIState extends State<MobileUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: CustomScrollView(
         slivers: [
-          CustomAppbar(
-            flexibleSpace: LayoutBuilder(
-              builder: (context, constraints) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    CustomSearchBar(
-                      // Updated widget name
-                      onSearch: (query) {
-                        // Handle search
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
+          CustomAppbar(),
           SliverToBoxAdapter(child: CreditCardPageView()),
         ],
       ),
