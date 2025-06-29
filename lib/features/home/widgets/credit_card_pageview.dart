@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../core/colors.dart';
+import 'package:isupply_hackathon_ui/core/colors.dart';
+import 'package:isupply_hackathon_ui/features/home/widgets/credit_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../widgets/credit_card.dart';
 
 class CreditCardPageView extends StatefulWidget {
   const CreditCardPageView({super.key});
@@ -26,7 +25,7 @@ class _CreditCardPageViewState extends State<CreditCardPageView> {
             itemCount: creditCardCount, // Number of items
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                 child: CreditCard(
                   creditLimit: 5000.00,
                   availableBalance: 3250.00,
@@ -44,9 +43,8 @@ class _CreditCardPageViewState extends State<CreditCardPageView> {
         SmoothPageIndicator(
           controller: _pageController,
           count: creditCardCount,
-          effect: ExpandingDotsEffect(
+          effect: const ExpandingDotsEffect(
             activeDotColor: AppColors.darkBlue,
-            dotColor: Colors.grey,
             dotHeight: 10,
             dotWidth: 10,
           ),

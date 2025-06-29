@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 
-import "desktop_view.dart";
-import "mobile_view.dart";
-import "tablet_view.dart";
+import 'package:isupply_hackathon_ui/features/home/view/desktop_view.dart';
+import 'package:isupply_hackathon_ui/features/home/view/mobile_view.dart';
+import 'package:isupply_hackathon_ui/features/home/view/tablet_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

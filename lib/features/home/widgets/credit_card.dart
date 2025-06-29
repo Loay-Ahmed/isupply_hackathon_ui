@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../core/colors.dart';
+import 'package:isupply_hackathon_ui/core/colors.dart';
 
 class CreditCard extends StatelessWidget {
   final double creditLimit;
@@ -19,14 +19,14 @@ class CreditCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double usedAmount = creditLimit - availableBalance;
-    final double utilizationPercentage = usedAmount / creditLimit;
+    final usedAmount = creditLimit - availableBalance;
+    final utilizationPercentage = usedAmount / creditLimit;
     final daysRemaining = statementEnd.difference(DateTime.now()).inDays;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [AppColors.darkBlue, AppColors.mediumBlue],
@@ -56,7 +56,7 @@ class CreditCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                const Text(
                   'Credit Mode',
                   style: TextStyle(
                     color: AppColors.yellow,

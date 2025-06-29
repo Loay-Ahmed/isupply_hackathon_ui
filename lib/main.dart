@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './features/home/view/home_screen.dart';
+import 'package:isupply_hackathon_ui/features/home/view/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
